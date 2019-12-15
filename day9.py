@@ -80,9 +80,6 @@ def run(program, inp ):
             base = base + program[params[0]]
         if opCode == 99:
             return None
-
-        opCode = program[counter]
-
     return None
 
 def thruster(program, phase):
@@ -112,11 +109,11 @@ def recursive_thruster(program, phase):
         inp[0].append(out)
     return out
 
-with open('input') as f:
+with open('input9') as f:
     #prog = test
     prog = f.read()
     prog = prog.split(',')
     prog = list(map(int, prog))
     prog.extend([0]*10000)
-    for x in run(prog, iter([2])):
+    for x in run(prog, iter([1])):
         print(x)
