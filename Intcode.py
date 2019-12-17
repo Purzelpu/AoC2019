@@ -6,6 +6,7 @@ class Intcode:
         self.base = 0
         self.input = inp
         self.program = program[:]
+        self.history = []
 
     def parameters(self, x):
         if 1<= x < 3:
@@ -95,7 +96,18 @@ class Intcode:
     def __iter__(self):
         return self
 
-class RepairDroid(Intcode):
+class Robot17(Intcode):
     def __init__(self, program, inp):
         Intcode.__init__(self, program, inp)
-        self.history = []
+        self.camera = []
+        self.dust = 0
+
+    def run(self):
+        self.camera = []
+        while self.program[self.counter] != 99:
+            x = self.step()
+            if x != None:
+                if x < 255:
+                    self.camera.append(chr(x))
+                else:
+                    self.dust = x
