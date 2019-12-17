@@ -25,7 +25,7 @@ with open('input15') as f:
     prog.extend([0]*2000)
     p = [[]]
 
-    test = Intcode.RepairDroid(prog, iter([]))
+    test = Intcode.Intcode(prog, iter([]))
     robots = [test]
 
     reachable = []
@@ -40,7 +40,7 @@ with open('input15') as f:
                 except:
                     pass
                 n = iter([direction])
-                test = Intcode.RepairDroid(robot.program,n)
+                test = Intcode.Intcode(robot.program,n)
                 test.counter = robot.counter
                 test.base = robot.base
                 test.history = robot.history[:]
@@ -72,7 +72,7 @@ with open('input15') as f:
                 except:
                     pass
                 n = iter([direction])
-                test = Intcode.RepairDroid(robot.program,n)
+                test = Intcode.Intcode(robot.program,n)
                 test.counter = robot.counter
                 test.base = robot.base
                 test.history = robot.history[:]
